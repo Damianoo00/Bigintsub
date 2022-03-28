@@ -1,0 +1,8 @@
+1. Określenie działania (+/-)
+2. okreslenie która liczba jest większa
+3. ewentualny swap
+4. Uzupełnienie zerami do większej liczby
+5. odjęcie jeden od drugiego
+6. usunięcie zer na początku
+7. Obsługa błędów
+8. Unit testy
