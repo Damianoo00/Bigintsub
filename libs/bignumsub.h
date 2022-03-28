@@ -1,5 +1,5 @@
-#ifndef Libs
-#define Libs
+#ifndef Bignumsub
+#define Bignumsub
 
 enum sign { minus = 0, plus = 1 };
 
@@ -11,7 +11,7 @@ struct LongNumber {
 typedef struct LongNumber LongNumber;
 
 char *bignumsub(char *, char *);
-int is_bigger(LongNumber *, LongNumber *);
+char is_bigger(LongNumber *, LongNumber *);
 LongNumber char2longnumber(char[]);
 void add_nulls(LongNumber *, LongNumber *);
 LongNumber subtract(LongNumber *, LongNumber *);
@@ -20,5 +20,6 @@ char *longnumber2char(LongNumber *);
 void remove_first_nulls(LongNumber *);
 void minus_zero_exception(LongNumber *);
 void CheckExceededException(char *, char *);
+void CheckNoValueException(char *, char *);
 
 #endif

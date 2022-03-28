@@ -1,4 +1,4 @@
-#include "libs.h"
+#include "../libs/bignumsub.h"
 #include <stdio.h>
 
 int main(int argc, char **argv) {

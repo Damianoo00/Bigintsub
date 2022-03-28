@@ -1,15 +1,13 @@
-#include "libs.h"
-#include "flags.h"
+#include "../libs/bignumsub.h"
+#include "../libs/exceptions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NUMBER_SIZE 32
-
 char *bignumsub(char *ch_num1, char *ch_num2) {
   /*  substract 2 chars  */
-
   CheckExceededException(ch_num1, ch_num2);
+  CheckNoValueException(ch_num1, ch_num2);
 
   LongNumber num1 = char2longnumber(ch_num1);
   LongNumber num2 = char2longnumber(ch_num2);
@@ -17,13 +15,7 @@ char *bignumsub(char *ch_num1, char *ch_num2) {
 
   return longnumber2char(&result);
 }
-void CheckExceededException(char *str1, char *str2) {
-  if (strlen(str1) > MAX_NUMBER_SIZE || strlen(str2) > MAX_NUMBER_SIZE) {
-    printf("[Error: %d] The allowed length of the number has been exceeded\n",
-           ERANGE);
-    exit(ERANGE);
-  }
-}
+
 void minus_zero_exception(LongNumber *num) {
   /* replace -0 to 0 if occurred*/
   if (!strcmp(num->number, "0")) {
@@ -174,7 +166,7 @@ char *longnumber2char(LongNumber *num) {
   return str;
 }
 
-int is_bigger(LongNumber *num1, LongNumber *num2) {
+char is_bigger(LongNumber *num1, LongNumber *num2) {
   /*  check if second arg (num2) is bigger than first arg (num1)  */
 
   for (int i = 0; i < strlen(num1->number); i++) {
